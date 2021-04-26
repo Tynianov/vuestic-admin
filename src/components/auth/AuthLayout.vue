@@ -8,21 +8,9 @@
 
     <div class="flex xs12 pa-3">
       <div class="d-flex justify--center">
-        <va-card class="auth-layout__card">
-          <va-tabs
-            v-model="tabIndex"
-            center
-          >
-            <va-tab>{{ $t('auth.login') }}</va-tab>
-            <va-tab>{{ $t('auth.createNewAccount') }}</va-tab>
-          </va-tabs>
-
-          <va-separator/>
-
-          <div class="pa-3">
-            <router-view/>
-          </div>
-        </va-card>
+        <div class="pa-3">
+          <router-view/>
+        </div>
       </div>
     </div>
   </div>
@@ -33,7 +21,7 @@ import VaIconVuestic from '../../iconset/VaIconVuestic'
 
 const tabs = [
   'login',
-  'signup',
+  'signup'
 ]
 
 export default {
@@ -42,7 +30,7 @@ export default {
   data () {
     return {
       selectedTabIndex: 0,
-      tabTitles: ['login', 'createNewAccount'],
+      tabTitles: ['login', 'createNewAccount']
     }
   },
   computed: {
@@ -52,16 +40,31 @@ export default {
       },
       get () {
         return tabs.indexOf(this.$route.name)
-      },
-    },
-  },
+      }
+    }
+  }
 }
 </script>
 
 <style lang="scss">
 .auth-layout {
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
   min-height: 100vh;
-  background-image: linear-gradient(to right, #0e4ac4, #002c85);
+  background-image: url("../../assets/images/background_pattern.png");
+  background-repeat: repeat;
+
+  .supermarket-creation-container,
+  .supermarket-login-container {
+    &__card {
+      min-width: 500px;
+      max-width: 600px;
+    }
+  }
 
   &__card {
     width: 100%;

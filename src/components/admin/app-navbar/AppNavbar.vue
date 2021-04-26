@@ -11,7 +11,6 @@
           @click.native="$emit('update:minimized', !minimized)"
           :color="contextConfig.invertedColor ? $themes.gray : 'white'"
         />
-
         <va-icon-menu-collapsed
           class="app-navbar__menu"
           v-if="minimized && !isTopBar"
@@ -25,31 +24,6 @@
         >
           <va-icon-vuestic />
         </router-link>
-      </div>
-      <div class="app-navbar__center lg5 md4">
-        <span
-          class="app-navbar__text"
-          :style="{color: this.$themes.gray}"
-        >
-          {{$t('navbar.messageUs')}}&nbsp;
-          <a
-            href="mailto:hello@epicmax.co"
-            target="_blank"
-            class="app-navbar__mailto-link"
-            :style="{color: this.$themes.primary}"
-          >
-            hello@epicmax.co
-          </a>
-        </span>
-        <va-button
-          href="https://github.com/epicmaxco/vuestic-admin"
-          color="#000000"
-          class="app-navbar__button"
-          icon="fa fa-github"
-          target="_blank"
-        >
-          {{$t('navbar.repository')}}
-        </va-button>
       </div>
       <app-navbar-actions
         class="app-navbar__actions md5 lg4"
@@ -79,21 +53,21 @@ export default {
     VaIconVuestic,
     VaIconMenu,
     VaIconMenuCollapsed,
-    AppNavbarActions,
+    AppNavbarActions
   },
   props: {
     isTopBar: {
       type: Boolean,
-      required: true,
+      required: true
     },
     minimized: {
       type: Boolean,
-      required: true,
-    },
+      required: true
+    }
   },
   data () {
     return {
-      userName: 'Vasili S',
+      userName: 'Vasili S'
     }
   },
   computed: {
@@ -103,7 +77,7 @@ export default {
       },
       set (isTopBar) {
         this.$emit('update:isTopBar', isTopBar)
-      },
+      }
     },
     minimizedProxy: {
       get () {
@@ -111,24 +85,12 @@ export default {
       },
       set (minimized) {
         this.$emit('update:minimized', minimized)
-      },
+      }
     },
     navbarStyle () {
-      const style = {
-        backgroundColor: 'white',
+      return {
+        backgroundColor: this.$themes.secondary
       }
-
-      if (this.contextConfig.gradient) {
-        style.backgroundColor = colorShiftHsl(this.$themes.secondary, {
-          s: -13,
-          l: 15,
-        }).css
-      }
-
-      if (this.contextConfig.shadow === 'sm') {
-        style.boxShadow = !this.isTopBar ? '0 2px 3px 0 rgba(52, 56, 85, 0.25)' : null
-      }
-      return style
     },
 
     shapeStyle () {
@@ -136,11 +98,11 @@ export default {
         borderTopColor: this.contextConfig.gradient ? colorShiftHsl(this.$themes.secondary, {
           h: -1,
           s: -11,
-          l: 10,
-        }).css : 'transparent',
+          l: 10
+        }).css : 'transparent'
       }
-    },
-  },
+    }
+  }
 }
 </script>
 

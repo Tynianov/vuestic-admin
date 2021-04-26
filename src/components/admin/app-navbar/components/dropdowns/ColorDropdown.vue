@@ -137,7 +137,7 @@ import VaIconColor from '../../../../../iconset/VaIconColor'
 export default {
   inject: ['contextConfig'],
   components: {
-    VaIconColor,
+    VaIconColor
   },
   computed: {
     selectedTheme: {
@@ -146,21 +146,21 @@ export default {
       },
       set (themeName) {
         this.$root.$emit('change-theme', themeName)
-      },
+      }
     },
     modeOptions () {
       return [
         {
           label: 'Original',
-          value: 'original',
+          value: 'original'
         },
         {
           label: 'Corporate',
-          value: 'corporate',
-        },
+          value: 'corporate'
+        }
       ]
-    },
-  },
+    }
+  }
 }
 </script>
 

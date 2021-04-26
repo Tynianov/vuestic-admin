@@ -44,7 +44,7 @@ import AppSidebar from './app-sidebar/AppSidebar'
 import { originalTheme, corporateTheme } from 'vuestic-ui/src/services/themes'
 import {
   ColorThemeActionsMixin,
-  ColorThemeMixin,
+  ColorThemeMixin
 } from '../../services/vuestic-ui'
 
 export default {
@@ -53,13 +53,13 @@ export default {
     AppPageLayout,
     AppNavbar,
     AppTopbar,
-    AppSidebar,
+    AppSidebar
   },
   data () {
     return {
       isTopBar: false,
       minimized: false,
-      mobileWidth: 767,
+      mobileWidth: 767
     }
   },
   inject: ['contextConfig'],
@@ -80,8 +80,8 @@ export default {
       Object.keys(theme.context).forEach((key) => {
         this.contextConfig[key] = theme.context[key]
       })
-    },
-  },
+    }
+  }
 }
 </script>
 

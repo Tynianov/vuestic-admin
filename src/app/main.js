@@ -25,7 +25,8 @@ Vue.use(YmapPlugin)
 Vue.use(VueClipboard)
 
 Vue.use(ColorThemePlugin, {
-  // override colors here.
+  secondary: '#4E82EA',
+  primary: '#ffffff'
 })
 
 router.beforeEach((to, from, next) => {
@@ -42,5 +43,5 @@ new Vue({
   el: '#app',
   router,
   store,
-  render: h => h(App),
+  render: h => h(App)
 })

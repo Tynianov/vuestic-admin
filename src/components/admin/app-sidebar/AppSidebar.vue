@@ -47,41 +47,41 @@ export default {
   inject: ['contextConfig'],
   components: {
     AppSidebarLink,
-    AppSidebarLinkGroup,
+    AppSidebarLinkGroup
   },
   mixins: [ColorThemeMixin],
   props: {
     minimized: {
       type: Boolean,
-      required: true,
+      required: true
     },
     color: {
       type: String,
-      default: 'secondary',
-    },
+      default: 'secondary'
+    }
   },
   data () {
     return {
-      items: navigationRoutes.routes,
+      items: navigationRoutes.routes
     }
   },
   computed: {
     computedClass () {
       return {
-        'app-sidebar--minimized': this.minimized,
+        'app-sidebar--minimized': this.minimized
       }
     },
     computedStyle () {
       return {
-        backgroundColor: this.contextConfig.invertedColor ? 'white' : this.colorComputed,
+        backgroundColor: this.contextConfig.invertedColor ? 'white' : this.colorComputed
       }
-    },
+    }
   },
   methods: {
     hasActiveByDefault (item) {
       return item.children.some(child => child.name === this.$route.name)
-    },
-  },
+    }
+  }
 }
 
 </script>
