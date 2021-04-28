@@ -123,6 +123,16 @@ export default new Router({
               name: 'supermarket-profile',
               path: 'profile',
               component: () => import('../components/supermarket/supermarket-profile/SupermarketProfile')
+            },
+            {
+              name: 'supermarket-staff',
+              path: 'staff',
+              component: () => import('../components/supermarket/supermarket-staff/SupermarketStaff')
+            },
+            {
+              name: 'supermarket-products',
+              path: 'products',
+              component: () => import('../components/supermarket/supermarket-products/SupermarketProducts')
             }
           ]
         },

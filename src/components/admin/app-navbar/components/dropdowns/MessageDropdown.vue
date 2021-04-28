@@ -21,8 +21,8 @@
         <span class="ellipsis" style="max-width: 85%;">{{ $t(`messages.${option.name}`, { name: option.details.name})}}</span>
       </div>
       <div class="row justify--space-between">
-        <va-button class="ma-0 mb-2 mt-1 mr-2" small>{{ $t('messages.all') }}</va-button>
-        <va-button class="ma-0 mb-2 mt-1" small outline @click="markAllAsRead" :disabled="allRead">{{ $t('messages.mark_as_read') }}</va-button>
+        <va-button class="ma-0 mb-2 mt-1 mr-2" color="secondary" small>{{ $t('messages.all') }}</va-button>
+        <va-button class="ma-0 mb-2 mt-1" small color="secondary" outline @click="markAllAsRead" :disabled="allRead">{{ $t('messages.mark_as_read') }}</va-button>
       </div>
     </div>
   </va-dropdown>
@@ -37,11 +37,11 @@ export default {
   mixins: [ColorThemeMixin],
   inject: ['contextConfig'],
   components: {
-    VaIconMessage,
+    VaIconMessage
   },
   data () {
     return {
-      computedOptions: [...this.options],
+      computedOptions: [...this.options]
     }
   },
   props: {
@@ -52,22 +52,22 @@ export default {
           name: 'new',
           details: {
             name: 'Oleg M',
-            avatar: 'https://picsum.photos/24?image=1083',
+            avatar: 'https://picsum.photos/24?image=1083'
           },
           unread: true,
-          id: 1,
+          id: 1
         },
         {
           name: 'new',
           details: {
             name: 'Andrei H',
-            avatar: 'https://picsum.photos/24?image=1025',
+            avatar: 'https://picsum.photos/24?image=1025'
           },
           unread: true,
-          id: 2,
-        },
-      ],
-    },
+          id: 2
+        }
+      ]
+    }
   },
   computed: {
     allRead () {
@@ -75,16 +75,16 @@ export default {
     },
     iconColor () {
       return this.contextConfig.invertedColor ? this.$themes.gray : 'white'
-    },
+    }
   },
   methods: {
     markAllAsRead () {
       this.computedOptions = this.computedOptions.map(item => ({
         ...item,
-        unread: false,
+        unread: false
       }))
-    },
-  },
+    }
+  }
 }
 </script>
 

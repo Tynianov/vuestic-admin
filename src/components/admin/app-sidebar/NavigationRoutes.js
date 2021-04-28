@@ -21,6 +21,14 @@ export const navigationRoutes = {
         {
           name: 'supermarket-profile',
           displayName: 'Supermarket profile'
+        },
+        {
+          name: 'supermarket-staff',
+          displayName: 'Staff'
+        },
+        {
+          name: 'supermarket-products',
+          displayName: 'Products'
         }
       ]
     },

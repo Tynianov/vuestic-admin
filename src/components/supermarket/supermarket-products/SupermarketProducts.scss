@@ -1,0 +1,16 @@
+.supermarket-products {
+  &--header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h1 {
+      font-size: 20px;
+    }
+
+    .search-field {
+      max-width: 75%;
+      margin-bottom: 0;
+    }
+  }
+}

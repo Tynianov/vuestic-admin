@@ -24,8 +24,8 @@
         </span>
       </div>
       <div class="row justify--space-between">
-        <va-button class="ma-0 mb-2 mt-1" small>{{ $t('notifications.all') }}</va-button>
-        <va-button class="ma-0 mb-2 mt-1" small outline @click="markAllAsRead" :disabled="allRead">{{ $t('notifications.mark_as_read') }}</va-button>
+        <va-button class="ma-0 mb-2 mt-1" color="secondary" small>{{ $t('notifications.all') }}</va-button>
+        <va-button class="ma-0 mb-2 mt-1" small color="secondary" outline @click="markAllAsRead" :disabled="allRead">{{ $t('notifications.mark_as_read') }}</va-button>
       </div>
     </div>
   </va-dropdown>
@@ -39,12 +39,12 @@ export default {
   name: 'notification-dropdown',
   inject: ['contextConfig'],
   components: {
-    VaIconNotification,
+    VaIconNotification
   },
   mixins: [ColorThemeMixin],
   data () {
     return {
-      computedOptions: [...this.options],
+      computedOptions: [...this.options]
     }
   },
   props: {
@@ -55,40 +55,40 @@ export default {
           name: 'sentMessage',
           details: { name: 'Vasily S', avatar: 'https://picsum.photos/123' },
           unread: true,
-          id: 1,
+          id: 1
         },
         {
           name: 'uploadedZip',
           details: {
             name: 'Oleg M',
             avatar: 'https://picsum.photos/100',
-            type: 'typography component',
+            type: 'typography component'
           },
           unread: true,
-          id: 2,
+          id: 2
         },
         {
           name: 'startedTopic',
           details: { name: 'Andrei H', avatar: 'https://picsum.photos/24' },
           unread: true,
-          id: 3,
-        },
-      ],
-    },
+          id: 3
+        }
+      ]
+    }
   },
   computed: {
     allRead () {
       return !this.computedOptions.filter(item => item.unread).length
-    },
+    }
   },
   methods: {
     markAllAsRead () {
       this.computedOptions = this.computedOptions.map(item => ({
         ...item,
-        unread: false,
+        unread: false
       }))
-    },
-  },
+    }
+  }
 }
 </script>
 

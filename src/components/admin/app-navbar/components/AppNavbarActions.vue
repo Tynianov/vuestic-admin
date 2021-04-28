@@ -1,6 +1,5 @@
 <template>
   <div class="app-navbar-actions">
-    <color-dropdown class="app-navbar-actions__item"/>
     <message-dropdown class="app-navbar-actions__item"/>
     <notification-dropdown class="app-navbar-actions__item"/>
     <settings-dropdown
@@ -19,7 +18,6 @@ import LanguageDropdown from './dropdowns/LanguageDropdown'
 import ProfileDropdown from './dropdowns/ProfileDropdown'
 import NotificationDropdown from './dropdowns/NotificationDropdown'
 import MessageDropdown from './dropdowns/MessageDropdown'
-import ColorDropdown from './dropdowns/ColorDropdown'
 import SettingsDropdown from './dropdowns/SettingsDropdown'
 import { ColorThemeMixin } from '../../../../services/vuestic-ui'
 
@@ -29,21 +27,20 @@ export default {
   inject: ['contextConfig'],
   components: {
     SettingsDropdown,
-    ColorDropdown,
     MessageDropdown,
     NotificationDropdown,
     LanguageDropdown,
-    ProfileDropdown,
+    ProfileDropdown
   },
   props: {
     userName: {
       type: String,
-      default: '',
+      default: ''
     },
     isTopBar: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
   computed: {
     isTopBarProxy: {
@@ -52,9 +49,9 @@ export default {
       },
       set (isTopBar) {
         this.$emit('update:isTopBar', isTopBar)
-      },
-    },
-  },
+      }
+    }
+  }
 }
 </script>
 
