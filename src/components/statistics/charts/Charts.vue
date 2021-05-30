@@ -4,7 +4,7 @@
       <div class="flex md6 xs12">
         <va-card
           class="chart-widget"
-          :title="$t('charts.verticalBarChart')"
+          title="Financial report"
         >
           <va-chart :data="verticalBarChartData" type="vertical-bar"/>
         </va-card>
@@ -12,49 +12,38 @@
       <div class="flex md6 xs12">
         <va-card
           class="chart-widget"
-          :title="$t('charts.horizontalBarChart')"
-        >
-          <va-chart :data="horizontalBarChartData" type="horizontal-bar"/>
-        </va-card>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="flex md12 xs12">
-        <va-card
-          class="chart-widget"
-          :title="$t('charts.lineChart')"
-        >
-          <va-chart :data="lineChartData" type="line"/>
-        </va-card>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="flex md6 xs12">
-        <va-card
-          class="chart-widget"
-          :title="$t('charts.pieChart')"
-        >
-          <va-chart :data="pieChartData" type="pie"/>
-        </va-card>
-      </div>
-      <div class="flex md6 xs12">
-        <va-card
-          class="chart-widget"
-          :title="$t('charts.donutChart')"
+          title="Top Locations"
         >
           <va-chart :data="donutChartData" type="donut"/>
         </va-card>
       </div>
     </div>
+
     <div class="row">
       <div class="flex md12 xs12">
         <va-card
           class="chart-widget"
-          :title="$t('charts.bubbleChart')"
+          title="Debit/Credit"
+        >
+          <va-chart :data="lineChartData" type="line"/>
+        </va-card>
+      </div>
+    </div>
+    <div class="row">
+      <div class="flex md6 xs12">
+        <va-card
+          class="chart-widget"
+          title="Top Brands"
         >
           <va-chart :data="bubbleChartData" type="bubble"/>
+        </va-card>
+      </div>
+      <div class="flex md6 xs12">
+        <va-card
+          class="chart-widget"
+          title="Top Categories"
+        >
+          <va-chart :data="pieChartData" type="pie"/>
         </va-card>
       </div>
     </div>
@@ -80,14 +69,14 @@ export default {
       pieChartData: getPieChartData(this.$themes),
       donutChartData: getDonutChartData(this.$themes),
       verticalBarChartData: getVerticalBarChartData(this.$themes),
-      horizontalBarChartData: getHorizontalBarChartData(this.$themes),
+      horizontalBarChartData: getHorizontalBarChartData(this.$themes)
     }
   },
   methods: {
     refreshData () {
       this.lineChartData = getLineChartData(this.$themes)
-    },
-  },
+    }
+  }
 }
 </script>
 

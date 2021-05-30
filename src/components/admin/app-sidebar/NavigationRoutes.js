@@ -239,3 +239,66 @@ export const navigationRoutes = {
     }
   ]
 }
+
+export const demoDashboardNavigationRoutes = {
+  root: {
+    name: '/',
+    displayName: 'navigationRoutes.home'
+  },
+  routes: [
+    {
+      name: 'dashboard-demo',
+      displayName: 'menu.dashboard',
+      meta: {
+        iconClass: 'vuestic-iconset vuestic-iconset-dashboard'
+      }
+    },
+    {
+      name: 'supermarket',
+      displayName: 'Supermarket',
+      meta: {
+        iconClass: 'va-icon maki maki-shop'
+      },
+      children: [
+        {
+          name: 'supermarket-profile',
+          displayName: 'Supermarket profile'
+        },
+        {
+          name: 'supermarket-staff',
+          displayName: 'Staff'
+        },
+        {
+          name: 'supermarket-products',
+          displayName: 'Products'
+        }
+      ]
+    },
+    {
+      displayName: 'menu.statistics',
+      name: 'charts',
+      meta: {
+        iconClass: 'vuestic-iconset vuestic-iconset-statistics'
+      },
+      children: [
+        {
+          name: 'charts',
+          displayName: 'menu.charts'
+        }
+      ]
+    },
+    {
+      displayName: 'menu.statistics',
+      name: 'charts',
+      meta: {
+        iconClass: 'vuestic-iconset vuestic-iconset-statistics'
+      },
+      children: [
+        {
+          name: 'charts',
+          displayName: 'menu.charts'
+        }
+      ]
+    }
+  ]
+}

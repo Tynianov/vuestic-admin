@@ -1,8 +1,8 @@
 export const getPieChartData = (themes) => ({
-  labels: ['Africa', 'Asia', 'Europe'],
+  labels: ['Food', 'Drinks', 'Other'],
   datasets: [{
     label: 'Population (millions)',
-    backgroundColor: [themes.primary, themes.warning, themes.danger],
-    data: [2478, 5267, 734],
-  }],
+    backgroundColor: [themes.success, themes.warning, themes.danger],
+    data: [2478, 5267, 734]
+  }]
 })

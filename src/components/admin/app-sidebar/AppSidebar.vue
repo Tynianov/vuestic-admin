@@ -5,7 +5,7 @@
     :style="computedStyle"
   >
     <ul class="app-sidebar__menu">
-      <template v-for="(item, key) in items">
+      <template v-for="(item, key) in navBarItems">
         <app-sidebar-link-group
           :key="key"
           :minimized="minimized"
@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import { navigationRoutes } from './NavigationRoutes'
+import { navigationRoutes, demoDashboardNavigationRoutes } from './NavigationRoutes'
 import AppSidebarLink from './components/AppSidebarLink'
 import AppSidebarLinkGroup from './components/AppSidebarLinkGroup'
 import { ColorThemeMixin } from '../../../services/vuestic-ui'
@@ -75,6 +75,12 @@ export default {
       return {
         backgroundColor: this.contextConfig.invertedColor ? 'white' : this.colorComputed
       }
+    },
+    navBarItems () {
+      if (this.$route.query.demo) {
+        return demoDashboardNavigationRoutes.routes
+      }
+      return navigationRoutes.routes
     }
   },
   methods: {

@@ -11,7 +11,7 @@ const EmptyParentComponent = {
 
 const demoRoutes = []
 
-export default new Router({
+const router = new Router({
   mode: process.env.VUE_APP_ROUTER_MODE_HISTORY === 'true' ? 'history' : 'hash',
   routes: [
     ...demoRoutes,
@@ -92,6 +92,12 @@ export default new Router({
           default: true
         },
         {
+          name: 'dashboard-demo',
+          path: 'dashboard/demo',
+          component: () => import('../components/dashboard/DashboardDemo.vue'),
+          default: true
+        },
+        {
           name: 'statistics',
           path: 'statistics',
           component: EmptyParentComponent,
@@ -113,6 +119,11 @@ export default new Router({
               }
             }
           ]
+        },
+        {
+          name: 'customers',
+          path: 'customers'
+
         },
         {
           name: 'supermarket',
@@ -421,3 +432,17 @@ export default new Router({
     }
   ]
 })
+
+function hasQueryParams (route) {
+  return !!Object.keys(route.query).length
+}
+
+router.beforeEach((to, from, next) => {
+  if (!hasQueryParams(to) && hasQueryParams(from)) {
+    next({ name: to.name, query: from.query })
+  } else {
+    next()
+  }
+})
+
+export default router
