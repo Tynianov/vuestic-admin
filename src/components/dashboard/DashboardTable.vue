@@ -19,6 +19,7 @@
             outline
             v-model="mode"
             :options="modeOptions"
+            color="secondary"
             style="max-width: 100%;"
           />
         </div>
@@ -33,6 +34,9 @@
     >
       <template slot="icon">
         <va-icon name="fa fa-user" color="secondary" />
+      </template>
+      <template v-slot:amount="props">
+        <span>{{ props.rowData.amount.toFixed(2) }}</span>
       </template>
       <template v-slot:starred="props">
         <va-icon
@@ -73,74 +77,90 @@ export default {
       users: data.slice(),
       loading: false,
       term: null,
-      mode: 0,
+      mode: 0
     }
+  },
+  created () {
+    this.users.map((user) => {
+      user.amount = Math.random() * 100
+    })
   },
   computed: {
     fields () {
       return [{
         name: '__slot:icon',
         width: '30px',
-        dataClass: 'text-center',
+        dataClass: 'text-center'
       }, {
         name: 'name',
         title: this.$t('tables.headings.name'),
-        width: '30%',
+        width: '30%'
       }, {
         name: 'email',
         title: this.$t('tables.headings.email'),
-        width: '30%',
-      }, {
+        width: '30%'
+      },
+      {
+        name: '__slot:amount',
+        title: 'Amount',
+        width: '20%'
+      },
+      {
         name: '__slot:status',
         title: this.$t('tables.headings.status'),
         width: '20%',
-        sortField: 'status',
+        sortField: 'status'
       }, {
         name: '__slot:actions',
-        dataClass: 'text-right',
+        dataClass: 'text-right'
       }]
     },
     detailedFields () {
       return [{
         name: '__slot:icon',
         width: '30px',
-        dataClass: 'text-center',
+        dataClass: 'text-center'
       }, {
         name: 'name',
         title: this.$t('tables.headings.name'),
-        width: '20%',
+        width: '20%'
       }, {
         name: 'email',
         title: this.$t('tables.headings.email'),
-        width: '20%',
+        width: '20%'
+      },
+      {
+        name: '__slot:amount',
+        title: 'Amount',
+        width: '20%'
       },
       {
         name: 'country',
         title: this.$t('tables.headings.location'),
-        with: '20%',
+        with: '20%'
       },
       {
         name: '__slot:starred',
-        width: '20px',
+        width: '20px'
       },
       {
         name: '__slot:status',
         title: this.$t('tables.headings.status'),
         width: '20%',
-        sortField: 'status',
+        sortField: 'status'
       },
       {
         name: '__slot:actions',
-        dataClass: 'text-right',
+        dataClass: 'text-right'
       }]
     },
     modeOptions () {
       return [{
         value: 0,
-        label: this.$t('dashboard.table.brief'),
+        label: this.$t('dashboard.table.brief')
       }, {
         value: 1,
-        label: this.$t('dashboard.table.detailed'),
+        label: this.$t('dashboard.table.detailed')
       }]
     },
     filteredData () {
@@ -151,7 +171,7 @@ export default {
       return this.users.filter(item => {
         return item.name.toLowerCase().startsWith(this.term.toLowerCase())
       })
-    },
+    }
   },
   methods: {
     getStatusColor (status) {
@@ -176,16 +196,21 @@ export default {
         this.showToast(this.$t('dashboard.table.resolved'), {
           icon: 'fa-check',
           position: 'bottom-right',
-          duration: 1500,
+          duration: 1500
         })
       }, 500)
     },
     search: debounce(function (term) {
       this.term = term
-    }, 400),
-  },
+    }, 400)
+  }
 }
 </script>
 
 <style lang="scss">
+  .va-data-table__pagination {
+    button {
+      color: black;
+    }
+  }
 </style>

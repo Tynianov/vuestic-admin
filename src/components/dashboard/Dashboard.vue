@@ -1,7 +1,6 @@
 <template>
   <div class="dashboard">
     <dashboard-charts />
-    <dashboard-info-block />
     <div class="row">
       <div class="flex xs12">
         <dashboard-table />
@@ -20,7 +19,6 @@
 
 <script>
 import DashboardCharts from './DashboardCharts'
-import DashboardInfoBlock from './DashboardInfoBlock'
 import DashboardTable from './DashboardTable'
 import DashboardTabs from './DashboardTabs'
 import DashboardMap from './DashboardMap'
@@ -29,7 +27,6 @@ export default {
   name: 'dashboard',
   components: {
     DashboardCharts,
-    DashboardInfoBlock,
     DashboardTable,
     DashboardTabs,
     DashboardMap

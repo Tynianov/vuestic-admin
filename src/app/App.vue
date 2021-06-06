@@ -13,13 +13,16 @@ export default {
       contextConfig: {
         gradient: true,
         shadow: 'lg', // 3 states: 'sm', 'lg', undefined (no shadow).
-        invertedColor: false,
-      },
+        invertedColor: false
+      }
     }
+  },
+  mounted () {
+    this.$router.push({ query: { demo: 1 } })
   },
   provide () {
     return {
-      contextConfig: this.contextConfig,
+      contextConfig: this.contextConfig
     }
   },
   watch: {
@@ -31,8 +34,8 @@ export default {
       } else {
         document.body.classList.remove(invertedColorClass)
       }
-    },
-  },
+    }
+  }
 }
 </script>
 

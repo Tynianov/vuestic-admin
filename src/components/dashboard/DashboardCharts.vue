@@ -1,7 +1,7 @@
 <template>
   <div class="row row-equal">
     <div class="flex xs12 xl6">
-      <va-card :title="$t('dashboard.charts.trendyTrends')">
+      <va-card title="Revenue">
         <va-button
           small
           slot="actions"
@@ -16,8 +16,8 @@
       </va-card>
     </div>
 
-    <div class="flex xs12 md6 xl3">
-      <va-card :title="$t('dashboard.charts.loadingSpeed')">
+    <div class="flex xs12 md6 xl6">
+      <va-card :title="$t('Countries breakdown')">
         <va-button
           icon="fa fa-print"
           flat
@@ -28,26 +28,20 @@
         <va-chart class="chart chart--donut" :data="donutChartData" type="donut"/>
       </va-card>
     </div>
-
-    <div class="flex xs12 md6 xl3">
-      <dashboard-contributors-chart/>
-    </div>
   </div>
 </template>
 
 <script>
 import { getDonutChartData } from '../../data/charts/DonutChartData'
 import { getLineChartData } from '../../data/charts/LineChartData'
-import DashboardContributorsChart from './DashboardContributorsList'
 
 export default {
   name: 'dashboard-charts',
-  components: { DashboardContributorsChart },
   data () {
     return {
       lineChartData: getLineChartData(this.$themes),
       donutChartData: getDonutChartData(this.$themes),
-      lineChartFirstMonthIndex: 0,
+      lineChartFirstMonthIndex: 0
     }
   },
   watch: {
@@ -63,7 +57,7 @@ export default {
 
     '$themes.danger' () {
       this.donutChartData = getDonutChartData(this.$themes)
-    },
+    }
   },
   methods: {
     deleteSection () {
@@ -81,13 +75,13 @@ export default {
         win.print()
         win.close()
       }, 200)
-    },
+    }
   },
   computed: {
     donutChartDataURL () {
       return document.querySelector('.chart--donut canvas').toDataURL('image/png')
-    },
-  },
+    }
+  }
 }
 </script>
 

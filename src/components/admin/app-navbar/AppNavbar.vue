@@ -22,7 +22,8 @@
           class="app-navbar__logo mr-3"
           to="/"
         >
-          <va-icon-vuestic />
+          <span>Mole App</span>
+<!--          <va-icon-vuestic />-->
         </router-link>
       </div>
       <app-navbar-actions
@@ -157,6 +158,7 @@ $nav-border-side-width: 3.1875rem;
 
   &__menu-container {
     display: flex;
+    align-items: center;
     flex-wrap: nowrap;
     height: 1.5rem;
   }
@@ -165,6 +167,11 @@ $nav-border-side-width: 3.1875rem;
     width: 9.5rem;
     height: auto;
     align-items: center;
+
+    span {
+      color: white;
+      font-size: 22px;
+    }
 
     & * {
       max-height: 100%;
